@@ -1,13 +1,12 @@
 //  Fruit API
 require('dotenv').config()
+const cors = require('cors')
 const fruits = require('./fruits.json');
 const express = require('express');
 const app = express();
 const port = process.env.PORT;
 
-const fruitIDs = fruits.map(fruit => fruit.id)
-const highestID = Math.max(...fruitIDs)
-console.log(highestID)
+app.use(cors())
 app.use(express.json());
 
 app.get('/', (req, res) => {
